@@ -1,0 +1,27 @@
+﻿@model List<MVC.Models.PostDetail>
+
+@foreach (var item in Model)
+{
+<div style="margin:0 10px 5px 0; border: 1px solid grey;">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        ID : @item.id
+    </div>
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <details>
+            <summary>
+                <span><i class="material-icons"><a href="@item.link" style="text-decoration:none;">Link to this post</a></i></span> 
+            </summary>
+        </details>
+    </div>
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+       MESSAGE : @item.message
+    </div>
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <span>@((DateTime.Today - DateTime.Parse(item.created_time)).Days) days ago.</span>
+        <img src="@item.full_picture" style="width:100px; height:100px;"/>
+        
+    </div>
+</div>
+}
+
+

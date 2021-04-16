@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Bai351_1_09042021.tblNhanvien>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>EMPLOYEE LIST</h2>
+
+<a href="/Employees/Create" class="btn btn-success" style="margin-bottom: 15px">Create New</a>
+<br />
+<div class="row" style="margin-bottom: 15px; margin-left: 0px">
+    @using (Html.BeginForm("Index", "Employees", FormMethod.Get))
+    {
+        <input type="text" name="searchString" placeholder="Search by name" style="line-height: 30px" />
+        <button type="submit" class="btn btn-primary">Search</button>
+    }
+</div>
+
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Manhanvien)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tennhanvien)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ngaysinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gioitinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Diachi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dienthoai)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Manhanvien)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Tennhanvien)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Ngaysinh)
+    </td>
+    <td>
+        @(item.Gioitinh.HasValue ? (item.Gioitinh.Value == false ? "Nữ" : "Nam") : "Trống" )
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Diachi)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Dienthoai)
+    </td>
+    <td>
+        <a href="/Employees/Edit/@item.Manhanvien" class="btn btn-warning" style="margin-bottom: 15px">Edit</a> |
+        <a href="/Employees/Delete/@item.Manhanvien" class="btn btn-danger" style="margin-bottom: 15px">Delete</a>
+    </td>
+</tr>
+}
+
+</table>

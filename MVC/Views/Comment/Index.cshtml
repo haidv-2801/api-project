@@ -1,0 +1,36 @@
+﻿@model MVC.Models.CommentModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>COMMENTSMODEL</h2>
+@foreach (var post in Model.datas)
+{
+    <div class="panel panel-default" style="width: 80%;">
+        <div class="panel-body">
+            <div class="avatar">
+                <span> <a href="" style="font-weight:bold">@post.from.name</a> </span><br />
+                <p style="margin-left: 60px; margin-top: -19px;">
+                </p>
+
+            </div>
+
+            <div class="postMessage" style="margin-top: 11px; margin-left: 9px;">
+                <p class="message">
+                    @post.message
+                </p>
+            </div>
+
+        </div>
+        <div class="panel-footer">
+            <button type="button" class="btn btn-success Comment" data-id="" value="Comment">
+                <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> @post.created_time
+            </button>
+            <a class="btn btn-success" href="/Post/Index/@post.id">Detail</a>
+        </div>
+    </div>
+}
+
+
+

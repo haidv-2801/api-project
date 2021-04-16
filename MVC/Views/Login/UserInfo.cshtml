@@ -1,0 +1,61 @@
+﻿@using MVC.Models;
+@{
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+    
+ 
+    var user_model = Session["user_info"] as User;
+}
+
+<div class="container">
+    <div class="row gutters">
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="account-settings">
+                        <div class="user-profile">
+                            <div class="user-avatar">
+                                <img id="userid" src="@user_model.picture" alt="@user_model.id">
+                            </div>
+                            <h5 class="user-name">@user_model.name</h5>
+                            <h6 class="user-email">@user_model.email</h6>
+                            <h6 class="user-email">@user_model.birthday</h6>
+                            <h6 class="user-email">Gender : @user_model.gender</h6>
+                            <h6 class="user-email">Address : @user_model.address</h6>
+                            <details>
+                                <summary>
+                                    <span>Contact me</span>
+                                </summary>
+                                <span><i class="material-icons"><a href="@user_model.link" style="text-decoration:none;">Facebook</a></i></span>
+                                <br />
+                                <span>Phone : 0388039267</span>
+                            </details>
+                        </div>
+                        <div class="about">
+                            <h5>About</h5>
+                            <p>I'm Hai. A student at University of Transport and Comunication.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="row gutters">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <h6 class="mb-2 text-primary">Recent Posts</h6>
+                            <label>Take : </label>
+                            <input value="5" type="number" id="quantity" name="quantity" min="1" max="@Int32.MaxValue">
+                            <a href="#" id="take" class="btn btn-primary">Take</a>
+                        </div>
+                        <div id="main-list-post">
+
+                        </div>
+                      @* @{ Html.RenderAction("getRecentPosts", "Post", new { userId = user_model.id});}*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
