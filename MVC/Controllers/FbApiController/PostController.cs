@@ -13,7 +13,7 @@ namespace MVC.Controllers.FbApiController
     {
         // GET: Post
    
-        public ActionResult getRecentPosts(string userId, int takeNum = 10)
+        public ActionResult getRecentPosts(string userId, int takeNum = 100)
         {
             string AccessToken = ConfigurationManager.AppSettings["Access_Token"];
             string apiString = string.Concat(userId, "/posts?access_token=", AccessToken);

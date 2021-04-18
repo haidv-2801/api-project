@@ -5,15 +5,12 @@
 }
 
 <h2>Đăng bài</h2>
-
-
     message<br />
     <input type="text" name="message" />
     <br /><br />
     link<br />
     <input type="text" name="link" />
     <br /><br />
-
     <select id="example-getting-started" multiple="multiple">
         @foreach (var item in Model.datas.Where(x => x.privacy == "CLOSED").ToList())
         {

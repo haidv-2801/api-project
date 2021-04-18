@@ -13,14 +13,13 @@ namespace MVC.Controllers.FbApiController
 {
     public class GroupController : Controller
     {
-        private readonly string appId = ConfigurationManager.AppSettings["AppId"];
-        private readonly string access_token = ConfigurationManager.AppSettings["Access_Token"];
         // GET: Group
-        public ActionResult Index()
+        public ActionResult Index(string id)
         {
             string AccessToken = ConfigurationManager.AppSettings["Access_Token"];
-            string PageId = ConfigurationManager.AppSettings["PageId"];
-            string apiString = "me/groups?access_token=" + AccessToken;
+            string apiString = "/groups?access_token=" + AccessToken;
+            apiString = string.Concat(id, apiString);
+
             string method = "Get";
             string responseString = GlobalVariables.GetStringResponse(apiString, method);
 
@@ -31,29 +30,30 @@ namespace MVC.Controllers.FbApiController
         [System.Web.Mvc.HttpGet]
         public ActionResult Post()
         {
-            string apiRequest = string.Concat("me/", "groups?");
+            string AccessToken = ConfigurationManager.AppSettings["Access_Token"];
+            string apiString = "/groups?access_token=" + AccessToken;
+            apiString = string.Concat("1413994845619966", apiString);
 
-            string response = GlobalVariables.GetStringResponse(apiRequest, "Get");
-            GroupModel grModel = JsonConvert.DeserializeObject<GroupModel>(response);
-            return View(grModel); 
+            string method = "Get";
+            string responseString = GlobalVariables.GetStringResponse(apiString, method);
+
+            GroupModel listGr = JsonConvert.DeserializeObject<GroupModel>(responseString);
+            return View(listGr); 
         }
 
         [System.Web.Mvc.HttpPost]
         public ActionResult Post([FromBody] string post)
         {
+            string access_token = ConfigurationManager.AppSettings["Access_Token"];
             Post model = JsonConvert.DeserializeObject<Post>(post);
-           
-             
             foreach (var item in model.listGroupId)
             {
                 string apiRequest = string.Concat(item, "/feed");
                 apiRequest = String.Concat(apiRequest, "?message=", model.message);
-                apiRequest = String.Concat(apiRequest, "&link=", model.link, "&");
-                string response = GlobalVariables.GetStringResponse(apiRequest, "Post");
+                apiRequest = String.Concat(apiRequest, "&link=", model.link, "&access_token=", access_token);
+                GlobalVariables.GetStringResponse(apiRequest, "Post");
             }
-           
-           
-            return View();
+            return Content("Posting group completely!");
         }
     }
 }

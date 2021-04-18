@@ -79,3 +79,6 @@ D:\nam3ki2\api\Projects\Bai351_1_09042021\MVC\bin\Microsoft.Scripting.xml
 D:\nam3ki2\api\Projects\Bai351_1_09042021\MVC\bin\Microsoft.Scripting.Metadata.xml
 D:\nam3ki2\api\Projects\Bai351_1_09042021\MVC\bin\Facebook.dll
 D:\nam3ki2\api\Projects\Bai351_1_09042021\MVC\bin\Facebook.xml
+D:\nam3ki2\api\Projects\Bai351_1_09042021\MVC\bin\BlogApi.dll
+D:\nam3ki2\api\Projects\Bai351_1_09042021\MVC\bin\BlogApi.pdb
+D:\nam3ki2\api\Projects\Bai351_1_09042021\MVC\bin\BlogApi.dll.config

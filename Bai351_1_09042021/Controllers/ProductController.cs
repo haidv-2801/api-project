@@ -51,13 +51,15 @@ namespace Bai351_1_09042021.Controllers
                     return false;
                 }
 
-                prod = new tblSanpham();
-                prod.Id = id;
-                prod.Name = name;
-                prod.Description = description;
-                prod.BuyPrice = buyPrice;
-                prod.Price = price;
-                prod.Amount = amount;
+                prod = new tblSanpham
+                {
+                    Id = id,
+                    Name = name,
+                    Description = description,
+                    BuyPrice = buyPrice,
+                    Price = price,
+                    Amount = amount
+                };
 
                 db.tblSanphams.InsertOnSubmit(prod);
                 db.SubmitChanges();

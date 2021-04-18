@@ -1,0 +1,28 @@
+﻿@using BlogApi;
+@model List<post>
+@{
+    Layout = "~/Views/Shared/_BlogLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+        @foreach (var item in Model)
+        {
+            <div class="post-preview">
+                <a href="/chi-tiet/@item.ID">
+                    <h2 class="post-title">@item.Article_Title</h2>
+                    <h3 class="post-subtitle">@item.Article_Content</h3>
+                </a>
+                <p class="post-meta">
+                    Posted by
+                    <a href="#!">HAIDV</a>
+                    on @item.Post_Date
+                </p>
+            </div>
+            <hr />
+        }
+        <!-- Pager-->
+        <div class="clearfix"><a class="btn btn-primary float-right" href="#!">Older Posts →</a></div>
+    </div>
+</div>
+

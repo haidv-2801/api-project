@@ -156,6 +156,7 @@
     <Compile Include="Controllers\FbApiController\GroupController.cs" />
     <Compile Include="Controllers\FbApiController\LoginController.cs" />
     <Compile Include="Controllers\FbApiController\PostController.cs" />
+    <Compile Include="Controllers\BlogController\HomeController.cs" />
     <Compile Include="Controllers\PythonController\ExecutePythonCodeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -171,6 +172,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Blog\dist\assets\favicon.ico" />
+    <Content Include="Assets\Blog\dist\assets\img\about-bg.jpg" />
+    <Content Include="Assets\Blog\dist\assets\img\contact-bg.jpg" />
+    <Content Include="Assets\Blog\dist\assets\img\home-bg.jpg" />
+    <Content Include="Assets\Blog\dist\assets\img\post-bg.jpg" />
+    <Content Include="Assets\Blog\dist\assets\img\post-sample-image.jpg" />
+    <Content Include="Assets\Blog\dist\assets\mail\contact_me.js" />
+    <Content Include="Assets\Blog\dist\assets\mail\contact_me.php" />
+    <Content Include="Assets\Blog\dist\assets\mail\jqBootstrapValidation.js" />
+    <Content Include="Assets\Blog\dist\css\styles.css" />
+    <Content Include="Assets\Blog\dist\js\scripts.js" />
     <Content Include="Assets\css\user.css" />
     <Content Include="Content\alertifyjs\alertify.css" />
     <Content Include="Content\alertifyjs\alertify.min.css" />
@@ -225,7 +237,6 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Employees\Index.cshtml" />
     <Content Include="Views\Employees\Edit.cshtml" />
@@ -240,6 +251,12 @@
     <Content Include="Views\Shared\_MyLayout.cshtml" />
     <Content Include="Views\Login\UserInfo.cshtml" />
     <Content Include="Views\Shared\posts.cshtml" />
+    <Content Include="Views\Shared\_BlogLayout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\PostDetail.cshtml" />
+    <Content Include="Views\Shared\_header.cshtml" />
+    <Content Include="Views\Shared\_footer.cshtml" />
+    <Content Include="Views\Shared\_navigation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -262,6 +279,10 @@
     <ProjectReference Include="..\Bai351_1_09042021\Bai351_1_09042021.csproj">
       <Project>{4e49573d-a8ec-4e10-8b10-09399694dc59}</Project>
       <Name>Bai351_1_09042021</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BlogApi\BlogApi.csproj">
+      <Project>{a8d2110b-866d-4dfa-924e-24a4a8c94ab8}</Project>
+      <Name>BlogApi</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

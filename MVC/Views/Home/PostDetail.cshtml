@@ -1,0 +1,8 @@
+﻿@using BlogApi;
+@model post
+
+@{
+    Layout = "~/Views/Shared/_BlogLayout.cshtml";
+}
+
+@Html.Raw(Model.Post_Content)

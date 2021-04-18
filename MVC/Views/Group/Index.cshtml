@@ -2,35 +2,40 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
 }
-
-@foreach (var post in Model.datas)
-{
-    <div class="panel panel-default" style="width: 80%;">
-        <div class="panel-body">
-            <div class="avatar">
-                <span> <a href="" style="font-weight:bold">@post.id</a> </span><br />
-                <p style="margin-left: 60px; margin-top: -19px;">
-                    @*<span class="glyphicon glyphicon-time" aria-hidden="true"></span>*@
-
-                </p>
-
+<div class="row gutters">
+    <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+        <a href="/Group/Post">Post to groups</a>
+    </div>
+        <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="row gutters">
+                        @foreach (var post in Model.datas)
+                        {
+                            <div style="margin:0 10px 5px 0; border: 1px solid grey;">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    ID : @post.id
+                                </div>
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <details>
+                                        <summary>
+                                            <span><i class="material-icons"><a target="_blank" href="https://facebook.com/@post.id" style="text-decoration:none;">Link to this group</a></i></span>
+                                        </summary>
+                                    </details>
+                                </div>
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    NAME : @post.name
+                                </div>
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    PRIVACY : @(post.privacy == null ? "Unknown" : post.privacy)
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
             </div>
-
-            <div class="postMessage" style="margin-top: 11px; margin-left: 9px;">
-                <p class="message">
-                    @post.name
-                </p>
-            </div>
-
-        </div>
-        <div class="panel-footer">
-            <button type="button" class="btn btn-success Comment" data-id="" value="Comment">
-                <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> @post.privacy
-            </button>
-            <a class="btn btn-success" href="/Post/Index/@post.id">Detail</a>
         </div>
     </div>
-}
 
