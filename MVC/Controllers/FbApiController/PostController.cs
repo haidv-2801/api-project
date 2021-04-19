@@ -15,7 +15,7 @@ namespace MVC.Controllers.FbApiController
    
         public ActionResult getRecentPosts(string userId, int takeNum = 100)
         {
-            string AccessToken = ConfigurationManager.AppSettings["Access_Token"];
+            string AccessToken = Session["Access_Token"] as string;
             string apiString = string.Concat(userId, "/posts?access_token=", AccessToken);
             string method = "Get";
             string responseString = GlobalVariables.GetStringResponse(apiString, method);

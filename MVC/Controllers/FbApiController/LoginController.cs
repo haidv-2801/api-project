@@ -56,8 +56,9 @@ namespace MVC.Controllers.FbApiController
                 redirect_uri = RedirectUri.AbsoluteUri,
                 code = code
             });
-
+            
             var accessToken = result.access_token;
+            Session["Access_Token"] = accessToken;
             if (!string.IsNullOrEmpty(accessToken))
             {
                 fb.AccessToken = accessToken;

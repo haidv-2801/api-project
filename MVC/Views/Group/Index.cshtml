@@ -14,24 +14,36 @@
                     <div class="row gutters">
                         @foreach (var post in Model.datas)
                         {
-                            <div style="margin:0 10px 5px 0; border: 1px solid grey;">
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                    ID : @post.id
-                                </div>
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <details>
-                                        <summary>
-                                            <span><i class="material-icons"><a target="_blank" href="https://facebook.com/@post.id" style="text-decoration:none;">Link to this group</a></i></span>
-                                        </summary>
-                                    </details>
-                                </div>
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                    NAME : @post.name
-                                </div>
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                    PRIVACY : @(post.privacy == null ? "Unknown" : post.privacy)
-                                </div>
+                        <div style="margin:0 10px 5px 0; border: 1px solid grey;">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                ID : @post.id
                             </div>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <details>
+                                    <summary>
+                                        <span><i class="material-icons"><a target="_blank" href="https://facebook.com/@post.id" style="text-decoration:none;">Link to this group</a></i></span>
+                                    </summary>
+                                </details>
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                NAME : @post.name
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                PRIVACY : @(post.privacy == null ? "Unknown" : post.privacy)
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                TOTAL_MEMBER : @(post.member_count == null ? "Unknown" : post.member_count)
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <details class="mb-3">
+                                    <summary>
+                                        <span><i class="material-icons"><a href="/Group/Feed/@post.id" style="text-decoration:none;">See all posts</a></i></span>
+                                    </summary>
+                                    <br />
+                                </details>
+                            </div>
+
+                        </div>
                         }
                     </div>
                 </div>

@@ -14,7 +14,7 @@ namespace MVC.Controllers.FbApiController
         // GET: Group
         public ActionResult Index(string id)
         {
-            string AccessToken = ConfigurationManager.AppSettings["Access_Token"];
+            string AccessToken = Session["Access_Token"] as string; 
             string PageId = ConfigurationManager.AppSettings["PageId"];
             string apiString = string.Concat(id, "/comments?access_token=" + AccessToken);
             string method = "Get";

@@ -10,9 +10,10 @@ namespace MVC.Models
     {
         public class data
         {
+            public string id { get; set; }
             public string name { get; set; }
             public string privacy { get; set; }
-            public string id { get; set; }
+            public string member_count { get; set; }
         }
 
         [JsonProperty("data")]
