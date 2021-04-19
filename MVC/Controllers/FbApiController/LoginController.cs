@@ -16,10 +16,12 @@ namespace MVC.Controllers.FbApiController
         {
             get
             {
-                var uriBuilder = new UriBuilder(Request.Url);
-                uriBuilder.Query = null;
-                uriBuilder.Fragment = null;
-                uriBuilder.Path = Url.Action("UserInfo");
+                var uriBuilder = new UriBuilder(Request.Url)
+                {
+                    Query = null,
+                    Fragment = null,
+                    Path = Url.Action("UserInfo")
+                };
                 return uriBuilder.Uri;
             }
         }

@@ -155,6 +155,7 @@
     <Compile Include="Controllers\FbApiController\CommentController .cs" />
     <Compile Include="Controllers\FbApiController\GroupController.cs" />
     <Compile Include="Controllers\FbApiController\LoginController.cs" />
+    <Compile Include="Controllers\FbApiController\PageController.cs" />
     <Compile Include="Controllers\FbApiController\PostController.cs" />
     <Compile Include="Controllers\BlogController\HomeController.cs" />
     <Compile Include="Controllers\PythonController\ExecutePythonCodeController.cs" />
@@ -167,6 +168,8 @@
     <Compile Include="Models\GroupModel.cs" />
     <Compile Include="Models\Group\FeedModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\Page\PageFeedsModel.cs" />
+    <Compile Include="Models\Page\PageModel.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\PostDetail.cs" />
     <Compile Include="Models\User.cs" />
@@ -259,6 +262,8 @@
     <Content Include="Views\Shared\_footer.cshtml" />
     <Content Include="Views\Shared\_navigation.cshtml" />
     <Content Include="Views\Group\Feed.cshtml" />
+    <Content Include="Views\Page\Index.cshtml" />
+    <Content Include="Views\Page\Feed.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
