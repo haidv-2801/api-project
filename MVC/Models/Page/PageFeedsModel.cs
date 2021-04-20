@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using MVC.Models.Page;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,8 @@ namespace MVC.Models
         {
             public string id { get; set; }
             public string message { get; set; }
+            public Like likes { get; set; }
+            public Comment comments { get; set; }
             public string created_time { get; set; }
          
             public From from { get; set; }
@@ -20,7 +23,7 @@ namespace MVC.Models
 
         [JsonProperty("data")]
         public List<data> datas { get; set; }
-       
+
         public class paging
         {
             public class cursors

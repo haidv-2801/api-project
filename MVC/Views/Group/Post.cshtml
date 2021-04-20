@@ -12,7 +12,7 @@
     <input type="text" name="link" />
     <br /><br />
     <select id="example-getting-started" multiple="multiple">
-        @foreach (var item in Model.datas.Where(x => x.privacy == "CLOSED").ToList())
+        @foreach (var item in Model.datas.Where(x => x.privacy == "CLOSED" || x.privacy == "OPEN").ToList())
         {
           <option data-id="@item.id">@item.name</option>
         }

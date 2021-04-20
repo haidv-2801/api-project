@@ -2,11 +2,15 @@
 @{
     ViewBag.Title = "feedFeeds";
     Layout = "~/Views/Shared/_MyLayout.cshtml";
+    var pageid = Request.Cookies["pageid"].Value as String;
 }
 
 <div class="row gutters">
     <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
         <a href="/Page/Post">Post to page</a>
+    </div>
+    <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+        <a href="/Page/Comment?id=@pageid">Auto comment</a>
     </div>
     <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
         <div class="card h-100">
@@ -32,16 +36,12 @@
                                 CREATE_TIME : @(feed.created_time)
                             </div>
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                FROM : 
+                                FROM :
                             </div>
-                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                    @*<details class="mb-3">
-                                        <summary>
-                                            <span><i class="material-icons"><a href="/feed/Feed?id=@feed.id&AccessToken=@feed.access_token" style="text-decoration:none;">See all feeds</a></i></span>
-                                        </summary>
-                                        <br />
-                                    </details>*@
-                             </div>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                TOTAL_LIKE : @feed.likes.summary.total_count |
+                                TOTAL_COMMENT : @feed.comments.summary.total_count
+                            </div>
                         </div>
                     }
                 </div>

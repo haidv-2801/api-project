@@ -168,6 +168,8 @@
     <Compile Include="Models\GroupModel.cs" />
     <Compile Include="Models\Group\FeedModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\Page\Comment.cs" />
+    <Compile Include="Models\Page\Like.cs" />
     <Compile Include="Models\Page\PageFeedsModel.cs" />
     <Compile Include="Models\Page\PageModel.cs" />
     <Compile Include="Models\Page\PagePostModel.cs" />
@@ -266,6 +268,7 @@
     <Content Include="Views\Page\Index.cshtml" />
     <Content Include="Views\Page\Feed.cshtml" />
     <Content Include="Views\Page\Post.cshtml" />
+    <Content Include="Views\Page\Comment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
