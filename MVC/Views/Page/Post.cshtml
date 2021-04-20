@@ -1,0 +1,37 @@
+﻿@model MVC.Models.Page.PageModel
+@{
+    ViewBag.Title = "Post";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Đăng bài</h2>
+    message
+<br />
+<input type="text" name="message" />
+<br />
+<br />
+    link
+<br />
+<input type="text" name="link" />
+<br />
+<br />
+  image url
+<br />
+<input type="text" name="image_url" />
+<br />
+<br />
+<select id="example-getting-started" multiple="multiple">
+    @foreach (var item in Model.datas)
+    {
+        <option data-id="@item.id" data-accesstoken="@item.access_token">@item.name</option>
+    }
+</select>
+<br />
+<br />
+<input type="radio" id="publish" name="publish" value="">
+<label for="male">Is Published</label>
+<br />
+<br />
+<a href="#" id="btnPostToPage" class="btn btn-primary">Post</a>
+
+

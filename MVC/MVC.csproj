@@ -170,6 +170,7 @@
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\Page\PageFeedsModel.cs" />
     <Compile Include="Models\Page\PageModel.cs" />
+    <Compile Include="Models\Page\PagePostModel.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\PostDetail.cs" />
     <Compile Include="Models\User.cs" />
@@ -264,6 +265,7 @@
     <Content Include="Views\Group\Feed.cshtml" />
     <Content Include="Views\Page\Index.cshtml" />
     <Content Include="Views\Page\Feed.cshtml" />
+    <Content Include="Views\Page\Post.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

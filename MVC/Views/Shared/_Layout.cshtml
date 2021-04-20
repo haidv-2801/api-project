@@ -32,40 +32,85 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
-           @* $('#example-getting-started').multiselect();*@
+           $('publish').prop("checked", true);
+
+           $('#btnPostToPage').on('click', function (e) {
+               e.preventDefault();
+
+               debugger;
+
+               var listGr = $('#example-getting-started').find(":selected");
+               var listGrId = [];
+
+               $.each(listGr, function (index, item) {
+                   listGrId.push({ id: $(item).data('id'), access_token: $(item).data('accesstoken')});
+               });
+
+              
+               var model = {
+                   listGroupId: listGrId,
+                   message: $('input[name="message"]').val(),
+                   link: $('input[name="link"]').val(),
+                   isPublished: $('#publish').prop("checked")
+               };
+
+           
+               $.ajax({
+                   url: '/Page/Post',
+                   data: {
+                       data: JSON.stringify(model)
+                   },
+                   dataType: 'json',
+                   method: 'Post',
+                   success: function (res) {
+                       if (res.status == true)
+                           alert("Post successfully!");
+                       else {
+                           alert("Error!");
+                       }
+                   },
+                   error: function () {
+                       alert("Error!");
+                   }
+               });
+           });
 
 
-            $('#btnSend').on('click', function (e) {
-                e.preventDefault();
-                var listGr = $('#example-getting-started').find(":selected");
-                var listGrId = [];
-                
-                $.each(listGr, function (index, item) {
-                    listGrId.push($(item).data('id'));
-                });
+           $('#btnSend').on('click', function (e) {
+               e.preventDefault();
+               var listGr = $('#example-getting-started').find(":selected");
+               var listGrId = [];
 
-                var model = {
- 
-                        listGroupId: [listGrId[0], listGrId[1]],
-                            message: $('input[name="message"]').val(),
-                                link: $('input[name="link"]').val()
-                };
+               $.each(listGr, function (index, item) {
+                   listGrId.push($(item).data('id'));
+               });
+               debugger;
+               var model = {
 
-                debugger;
-                console.log(listGr);
-                $.ajax({
-                    url: '/Group/Post',
-                    data: { post: JSON.stringify(model) },
-                    dataType: 'json',
-                    method:'Post',
-                    success: function () {
-                        alert("Post successfully!");
-                    },
-                    error: function () {
-                        alert("Error!");
-                    }
-                });
-            })
+                   listGroupId: listGrId,
+                   message: $('input[name="message"]').val(),
+                   link: $('input[name="link"]').val()
+               };
+
+               debugger;
+               console.log(listGr);
+               $.ajax({
+                   url: '/Group/Post',
+                   data: { post: JSON.stringify(model) },
+                   dataType: 'json',
+                   method: 'Post',
+                   success: function (res) {
+                       if (res.status == true)
+                           alert("Post successfully!");
+                       else {
+                           alert("Error!");
+                       }
+                   },
+                   error: function () {
+                       alert("Error!");
+                   }
+               });
+           });
         });
     </script>
     @Scripts.Render("~/bundles/jquery")

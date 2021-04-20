@@ -47,7 +47,7 @@ namespace MVC.Controllers.FbApiController
             string AccessToken = Session["Access_Token"] as string;
             string id = (Session["user_info"] as User).id;
 
-            string apiString = "/groups?fields=id&access_token=" + AccessToken;
+            string apiString = "/groups?fields=id,name,privacy&access_token=" + AccessToken;
             apiString = string.Concat(id, apiString);
 
             string method = "Get";
@@ -57,20 +57,28 @@ namespace MVC.Controllers.FbApiController
             return View(listGr);
         }
 
-        /* [System.Web.Mvc.HttpPost]
-         public ActionResult Post([FromBody] string post)
+         [System.Web.Mvc.HttpPost]
+         public JsonResult Post([FromBody] string post)
          {
-             string access_token = ConfigurationManager.AppSettings["Access_Token"];
-             Post model = JsonConvert.DeserializeObject<Post>(post);
-             foreach (var item in model.listGroupId)
-             {
-                 string apiRequest = string.Concat(item, "/feed");
-                 apiRequest = String.Concat(apiRequest, "?message=", model.message);
-                 apiRequest = String.Concat(apiRequest, "&link=", model.link, "&access_token=", access_token);
-                 GlobalVariables.GetStringResponse(apiRequest, "Post");
-             }
-             return Content("Posting group completely!");
-         }*/
+            try
+            {
+                string access_token = Session["Access_Token"] as string;
+                Post model = JsonConvert.DeserializeObject<Post>(post);
+                foreach (var item in model.listGroupId)
+                {
+                    string apiRequest = string.Concat(item, "/feed");
+                    apiRequest = String.Concat(apiRequest, "?message=", model.message);
+                    apiRequest = String.Concat(apiRequest, "&link=", model.link, "&access_token=", access_token);
+                    GlobalVariables.GetStringResponse(apiRequest, "Post");
+                }
+                return Json(new { status = true });
+            }
+            catch
+            {
+                return Json(new { status = false });
+            }
+           
+         }
 
 
     }
