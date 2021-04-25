@@ -14,7 +14,7 @@
                 <div class="row gutters">
                     @foreach (var feed in Model.datas)
                     {
-                    <div style="margin:0 10px 5px 0; border: 1px solid grey;">
+                    <div style="padding: 10px 5px; margin: 15px 10px; width: 100%; box-shadow: 0 0 10px #719ECE; border-radius: 5px;">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             ID : @feed.id
                         </div>
@@ -35,21 +35,27 @@
                             CREATE_TIME : @(feed.created_time == null ? "Unknown" : feed.created_time)
                         </div>
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                           @* <details>
-                                <summary>
-                                    <span><i class="material-icons"><a target="_blank" href="@feed.full_picture" style="text-decoration:none;">View picture</a></i></span>
-                                </summary>
-                            </details>*@
-                            <img src="@feed.full_picture" style="width:100px; height:100px;"/>
+                            TOTAL_LIKE : @(feed.comments.Summary.total_count)
+                        </div>
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            TOTAL_SHARE : @(feed.shares == null ? "0" : feed.shares.count)
+                        </div>
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            @* <details>
+                <summary>
+                    <span><i class="material-icons"><a target="_blank" href="@feed.full_picture" style="text-decoration:none;">View picture</a></i></span>
+                </summary>
+            </details>*@
+                            <img src="@feed.full_picture" style="width:100px; height:100px;" />
                         </div>
                         @*<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                            <details class="mb-3">
-                                <summary>
-                                    <span><i class="material-icons"><a href="/Group/Feed/@post.id" style="text-decoration:none;">See all posts</a></i></span>
-                                </summary>
-                                <br />
-                            </details>
-                        </div>*@
+            <details class="mb-3">
+                <summary>
+                    <span><i class="material-icons"><a href="/Group/Feed/@post.id" style="text-decoration:none;">See all posts</a></i></span>
+                </summary>
+                <br />
+            </details>
+        </div>*@
 
                     </div>
                     }

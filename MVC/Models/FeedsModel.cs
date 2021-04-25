@@ -18,6 +18,9 @@ namespace MVC.Models
             public string full_picture { get; set; }
             public string link { get; set; }
             public string reactions { get; set; }
+            public CommentModel comments { get; set; }
+            [JsonProperty("shares")]
+            public ShareModel shares { get; set; }
         }
 
         [JsonProperty("data")]

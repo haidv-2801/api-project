@@ -21,7 +21,8 @@ namespace MVC.Controllers.FbApiController
             string method = "Get";
             string responseString = GlobalVariables.GetStringResponse(apiString, method);
 
-            PageModel listPage = JsonConvert.DeserializeObject<PageModel>(responseString);
+           PageModel listPage = JsonConvert.DeserializeObject<PageModel>(responseString);
+          
             return View(listPage);
         }
 

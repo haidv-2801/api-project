@@ -20,7 +20,7 @@ namespace MVC.Controllers.FbApiController
             string method = "Get";
             string responseString = GlobalVariables.GetStringResponse(apiString, method);
 
-            CommentModel listGr = JsonConvert.DeserializeObject<CommentModel>(responseString);
+             CommentModel listGr = JsonConvert.DeserializeObject<CommentModel>(responseString);
             return View(listGr);
         }
     }

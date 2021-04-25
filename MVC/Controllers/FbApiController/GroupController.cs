@@ -32,7 +32,7 @@ namespace MVC.Controllers.FbApiController
         {
             string AccessToken = Session["Access_Token"] as string;
 
-            string apiString = "/feed?fields=id,message,caption,created_time,from,full_picture,link&access_token=" + AccessToken;//bo reactions
+            string apiString = "/feed?fields=id,message,caption,created_time,from,full_picture,link,comments.summary(true),shares&access_token=" + AccessToken;//bo reactions
             apiString = string.Concat(id, apiString);
 
             string method = "Get";

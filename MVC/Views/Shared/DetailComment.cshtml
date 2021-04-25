@@ -1,0 +1,43 @@
+﻿@model MVC.Models.PostDetail
+@using MVC.Models;
+@{
+    var user_model = Session["user_info"] as User;
+}
+@*<a href="/Login/UserInfo">Quay lại</a>*@
+@if (Model.comments.Summary.total_count == 0)
+{
+    <p> Không có comment nào</p>
+}
+else
+{
+    <table class="table" border="1" width="60%">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.created_time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.message)
+            </th>
+            <th></th>
+
+        </tr>
+        @foreach (var item in Model.comments.datas)
+        {
+            <tr>
+                <td>
+                    @item.created_time
+                </td>
+                <td>
+                    @item.message
+                </td>
+                <td>
+                    @item.from.name
+                </td>
+            </tr>
+        }
+
+
+
+    </table>
+}
+

@@ -175,6 +175,7 @@
     <Compile Include="Models\Page\PagePostModel.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\PostDetail.cs" />
+    <Compile Include="Models\ShareModel.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -190,7 +191,9 @@
     <Content Include="Assets\Blog\dist\assets\mail\jqBootstrapValidation.js" />
     <Content Include="Assets\Blog\dist\css\styles.css" />
     <Content Include="Assets\Blog\dist\js\scripts.js" />
+    <Content Include="Assets\css\page-post.css" />
     <Content Include="Assets\css\user.css" />
+    <Content Include="Assets\js\page-post.js" />
     <Content Include="Content\alertifyjs\alertify.css" />
     <Content Include="Content\alertifyjs\alertify.min.css" />
     <Content Include="Content\alertifyjs\alertify.rtl.css" />
@@ -269,10 +272,10 @@
     <Content Include="Views\Page\Feed.cshtml" />
     <Content Include="Views\Page\Post.cshtml" />
     <Content Include="Views\Page\Comment.cshtml" />
+    <Content Include="Views\Shared\DetailComment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Assets\js\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

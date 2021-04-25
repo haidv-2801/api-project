@@ -12,5 +12,7 @@ namespace MVC.Models
         public string link { get; set; }
         public string full_picture { get; set; }
         public string created_time { get; set; }
+        public CommentModel comments { get; set; }
+        public int count { get; set; }
     }
 }

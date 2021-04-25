@@ -19,13 +19,18 @@ namespace MVC.Models
             public string message { get; set; }
             public string id { get; set; }
         }
-
+        [JsonProperty("summary")]
+        public summary Summary { get; set; }
         public class from
         {
             public string name { get; set; }
             public string id { get; set; }
         }
+        public class summary
+        {
+            public int total_count { get; set; }
 
+        }
         public class paging
         {
             public class cursors
